@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <style>
+        body {
+            height: 100dvh;
+            width: 100%;
+            background: url(./images/background.png);
+            position: relative;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*navbar styling */
+
+        .navbar {
+            height: 5rem;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.496) !important;
+            padding: 0 2%;
+
+        }
+
+
+        .navbar-nav {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end !important;
+            font-weight: 600;
+        }
+
+        .navbar-nav>li {
+            width: 11%;
+            text-align: center;
+
+        }
+
+        .navbar-nav>li:hover {
+            font-weight: 700 !important;
+
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: clamp(20px, 3vw, 32px) !important;
+            height: 100%;
+        }
+
+        /* home styling start from here */
+        .home {
+            height: calc(100% - 5rem);
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .home-img {
+            width: 50%;
+            height: 80%;
+            display: grid;
+            place-items: center flex-start;
+            overflow: none;
+            position: relative;
+            animation: riseup 2s linear 1;
+        }
+        .home-img>img {
+            width: 80%;
+        }
+
+        .home-text {
+            color: black;
+            height: 100%;
+            width: 50%;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            position: relative;
+            animation: riseup 2s linear 1;
+        }
+
+        .home-text-container {
+            width: 100%;
+        }
+
+        .home-item-title {
+            font-size: clamp(20px, 5vw, 35px) !important;
+            width: 80%;
+            text-align: center;
+            font-weight: 700;
+            height: fit-content;
+        }
+
+        .home-item-desc {
+            font-size: clamp(15px, 3vw, 25px) !important;
+            width: 80%;
+            text-align: center;
+            height: fit-content;
+
+        }
+
+        .home-button-container {
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 5% 0;
+            position: relative;
+            bottom: -100%;
+        }
+        .btn-link{
+                height: 3rem !important;
+                width: 9rem;
+            }
+
+        .home-btn {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.423);
+            color: black;
+            border: none;
+            animation: riseup 2s linear 1;
+
+
+        }
+
+        .home-btn:hover {
+            font-weight: 700;
+        }
+
+        @keyframes riseup {
+            from {
+                bottom: -100%;
+
+            }
+
+            to {
+                bottom: 0%;
+            }
+        }
+
+        @media Screen and (max-width:992px) {
+            .navbar-nav {
+                width: 100%;
+                padding: 0;
+                height: 50dvh;
+                align-items: flex-start;
+                background-color: rgba(255, 255, 255, 0.496) !important;
+                backdrop-filter: blur(5px);
+                position: absolute;
+                z-index: 2;
+                top: 5rem;
+                left: 0;
+            }
+
+            .navbar-nav>li {
+                width: 100%;
+                height: 20%;
+                font-size: larger;
+            }
+
+        }
+
+        @media Screen and (max-width:868px) {
+
+            .home {
+                height: calc(100dvh);
+                flex-direction: column;
+                margin: 0;
+
+            }
+
+            .home-img {
+                width: 100%;
+                height: 70vh;
+                margin: 0;
+            }
+
+            .home-img>img {
+                height: 65dvh;
+                width: 100%;
+            }
+
+            .home-text {
+                height: 10rem;
+                width: 100%;
+            }
+
+            .home-item-title {
+                width: 100%;
+                text-align: center;
+                font-weight: 700;
+                height: fit-content;
+            }
+
+            .home-item-desc {
+                font-size: clamp(15px, 3vw, 25px) !important;
+                width: 100%;
+                text-align: center;
+                height: fit-content;
+
+            }
+
+            .home-button-container {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: 5% 0;
+                position: relative;
+                bottom: -100%;
+            }
+         
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Techno Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="list.html">Item-List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="home">
+        <div class="home-img">
+            <img src="./images/img1.png" alt="...">
+        </div>
+        <div class="home-text">
+            <div class="home-text-container">
+                <div class="home-item-title">
+                    U & I PILOT SERIES <br> HEADSET
+                </div>
+                <div class="home-item-desc">
+                    Wireless Bluetooth Over the Ear Headphone with Mic (White)
+                </div>
+                <div class="home-button-container">
+                   <a class="btn-link" href="list.html" > <button class="home-btn" type="submit">Shop all</button></a>
+                   <a class="btn-link" href="category.html">  <button class="home-btn" type="submit">Categories</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+
+</script>
+
+</html>

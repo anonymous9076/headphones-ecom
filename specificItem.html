@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+</head>
+<style>
+    body {
+        height: fit-content;
+        width: 100%;
+        background: url(./images/background.png);
+        position: relative;
+        background-repeat: no-repeat;
+        background-size:cover ;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /*navbar styling */
+    .navbar {
+        height: 5rem;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.496) !important;
+        padding: 0 2%;
+    }
+
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end !important;
+        font-weight: 600;
+    }
+
+    .navbar-nav>li {
+        width: 11%;
+        text-align: center;
+    }
+
+    .navbar-nav>li:hover {
+        font-weight: 700 !important;
+    }
+
+    .navbar-brand {
+        font-weight: 600;
+        font-size: clamp(15px, 2vw, 28px) !important;
+        height: 100%;
+    }
+
+    .item-container {
+        height: calc(100% - 5rem);
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+
+    }
+
+    .image {
+        height: 100%;
+        width: 60%;
+        box-sizing: border-box;
+        padding: 2%;
+        display: grid;
+        place-items: center;
+    }
+
+    .image>img {
+        height: 70%;
+        width: 80%;
+    }
+
+    .detail {
+        height: 100%;
+        width: 40%;
+        box-sizing: border-box;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .detail>p {
+        font-size: clamp(2rem, 3vw, 4rem);
+
+    }
+
+    #price {
+        width: 100%;
+        text-align: left;
+        color: red;
+        font-weight: 600;
+    }
+
+    .slogan {
+        padding: 0 10%;
+        color: white;
+        font-size: 2.5rem;
+        text-shadow: 5px 5px 10px rgb(84, 84, 84);
+    }
+
+    #desc {
+        padding: 0 12%;
+        font-size: 1.5rem;
+    }
+
+    @media Screen and (max-width:900px) {
+
+        .item-container {
+            height: fit-content;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .image {
+            width: 80%;
+            height: 20rem;
+            box-sizing: border-box;
+            padding: 2%;
+            display: grid;
+            place-items: center;
+
+        }
+
+        .image>img {
+            width: 80%;
+            height: 20rem;
+            border-radius: 20%;
+            object-fit: contain;
+            position: relative;
+            z-index: inherit;
+        }
+    
+        .slogan,#desc,#price{
+            width: 100%;
+            text-align: center;
+        }
+
+        .detail {
+            height: 20%;
+            width: 80%;
+            box-sizing: border-box;
+            padding: 2%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail>p {
+            font-size: clamp(2rem, 5vw, 5rem);
+            width: 100%;
+            text-align: center;
+
+        }
+    }
+
+    @media Screen and (max-width:992px) {
+        .navbar-nav {
+            width: 100%;
+            padding: 0;
+            height: 50dvh;
+            align-items: flex-start;
+            background-color: rgba(255, 255, 255, 0.496) !important;
+            backdrop-filter: blur(5px);
+            position: absolute;
+            z-index: 2;
+            top: 5rem;
+            left: 0;
+        }
+
+        .navbar-nav>li {
+            width: 100%;
+            height: 20%;
+            font-size: larger;
+        }
+
+    }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Techno Mart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.html">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="list.html">Item-List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="item-container">
+        <span class="image">
+            <img id="item-img" alt="...">
+        </span>
+        <span class="detail">
+            <p id="name">
+                <br>
+            <p id="price"></p>
+            <br>
+            </p>
+        </span>
+    </div>
+    <h2 class="slogan">Product Description</h2>
+    <p id="desc"></p>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+    const img = document.querySelector('#item-img')
+    const image = localStorage.getItem('image')
+    const var_img = image.split('/').pop()
+    setTimeout(()=>{
+        img.setAttribute('src',image)
+    },1000)
+
+    const price = document.querySelector('#price')
+    const var_price = localStorage.getItem('price')
+    price.innerHTML = "Rs " + var_price
+
+    const itemname = document.querySelector('#name')
+    const var_name = localStorage.getItem('name')
+    itemname.innerHTML = var_name
+
+    const desc = document.querySelector('#desc')
+    const var_desc = localStorage.getItem('desc')
+    var newarr = var_desc.split('&t');
+    console.log(newarr)
+    var newdesc = newarr.map(function (part) {
+        return '<p> '+'-> ' + part + '</p>';
+    }).join('');
+    desc.innerHTML = newdesc
+
+</script>
+
+</html>
