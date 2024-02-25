@@ -237,8 +237,55 @@
     import products from './product.js'
 
     const container = document.querySelector('.items-list')
+    const category = localStorage.getItem('category')
     localStorage.clear()
+    console.log(category)
+    if(category){
+        const filterproducts = products.filter(product => product.category === category);
+        filterproducts.forEach((curr, index) => {
+        const span1 = document.createElement('span')
+        span1.classList.add('item')
 
+        const span2 = document.createElement('span')
+        span2.classList.add('item-img')
+
+        const image = document.createElement('img')
+        image.setAttribute('src', curr.image)
+
+        const p = document.createElement('p')
+        p.innerText = curr.name
+
+        const p1 = document.createElement('p')
+        p1.classList.add('style-price')
+        p1.innerText = "Rs " + curr.price
+
+        const anchor = document.createElement('a')
+        anchor.classList.add('btn-link')
+
+        const btn = document.createElement('button')
+        btn.classList.add('home-btn')
+        btn.innerText = 'View now'
+        btn.addEventListener("click", function () {
+            localStorage.clear()
+            localStorage.setItem('category',category)
+            localStorage.setItem('image', curr.image)
+            localStorage.setItem('name', curr.name)
+            localStorage.setItem('desc', curr.desc)
+            localStorage.setItem('price', curr.price)
+            anchor.setAttribute('href', 'specificItem.html')
+
+        })
+
+        container.appendChild(span1)
+        span1.appendChild(span2)
+        span2.appendChild(image)
+        span1.appendChild(p)
+        p.appendChild(p1)
+        p.appendChild(anchor)
+        anchor.appendChild(btn)
+    })
+    }
+    else{
     products.forEach((curr, index) => {
         const span1 = document.createElement('span')
         span1.classList.add('item')
@@ -264,6 +311,7 @@
         btn.innerText = 'View now'
         btn.addEventListener("click", function () {
             localStorage.clear()
+            localStorage.setItem('category',category)
             localStorage.setItem('image', curr.image)
             localStorage.setItem('name', curr.name)
             localStorage.setItem('desc', curr.desc)
@@ -280,10 +328,8 @@
         p.appendChild(anchor)
         anchor.appendChild(btn)
     })
-
-    const handleClick = (item) => {
-        console.log(item)
     }
+ 
 
 </script>
 

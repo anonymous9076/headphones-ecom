@@ -52,6 +52,7 @@
         font-weight: 600;
         font-size: clamp(20px, 3vw, 32px) !important;
         height: 100%;
+
     }
 
     .title {
@@ -59,6 +60,8 @@
         text-align: center;
         letter-spacing: 2px;
         margin-top: 3%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+
     }
 
     .category-sec {
@@ -104,7 +107,7 @@
         text-align: center;
         box-sizing: border-box;
         margin: 4% auto;
-        font-size: clamp(20px, 5vw, 25px);
+        font-size: clamp(20px, 5vw, 25px) !important;
     }
 
     .list-btn {
@@ -136,6 +139,23 @@
         font-weight: 700;
     }
 
+    .an {
+        color: rgba(17, 17, 17, 0.752);
+        text-decoration: none;
+        font-size: clamp(20px, 5vw, 25px);
+        width: 100%;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+        height: 30%;
+        display: grid;
+        place-items: center;
+    }
+
+    .an:hover {
+        color: rgb(17, 17, 17);
+
+    }
+
     @media Screen and (max-width:992px) {
         .navbar-nav {
             width: 100%;
@@ -161,9 +181,10 @@
 
     @media Screen and (max-width:900px) {
 
-        body{
+        body {
             height: fit-content;
         }
+
         .category-sec {
             width: 100%;
             margin: 2% auto;
@@ -173,7 +194,7 @@
             justify-content: space-evenly;
             gap: 2rem;
         }
-     
+
     }
 
     @media Screen and (max-width:600px) {
@@ -188,7 +209,8 @@
         }
     }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -224,23 +246,32 @@
 
     <h3 class="title">Shop By Category</h3>
     <div class="category-sec">
-        <div class="cat-card">
+
+        <div class="cat-card wireless" onclick="handleClick('wireless')">
             <span id="yo">
                 <img src="images/wireless.jpg">
             </span>
-            <h2>WIRELESS HEADSET</h2>
+            <a class="an" href="list.html">
+                <h2>WIRELESS HEADSET</h2>
+            </a>
         </div>
-        <div class="cat-card">
+
+        <div class="cat-card wired" onclick="handleClick('wired')">
             <span id="yo">
                 <img src="images/images.jpg">
             </span>
-            <h2>WIRED HEADSET</h2>
+            <a class="an" href="list.html">
+                <h2>WIRED HEADSET</h2>
+            </a>
         </div>
-        <div class="cat-card">
+
+        <div class="cat-card mic" onclick="handleClick('mic')">
             <span id="yo">
                 <img src="images/withmic.jpg">
             </span>
-            <h2>WITH MIC HEADSET</h2>
+            <a class="an" href="list.html">
+                <h2>WITH MIC HEADSET</h2>
+            </a>
         </div>
     </div>
     <span class="list-btn">
@@ -249,5 +280,13 @@
 
 </body>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+
+    localStorage.clear()
+    const handleClick = (category) => {
+
+        localStorage.setItem('category', category)
+    }
+</script>
 
 </html>
